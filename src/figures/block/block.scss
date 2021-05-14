@@ -1,22 +1,68 @@
+$degrees: (
+  a0: 0,
+  a45: 45deg,
+  a90: 90deg,
+  a135: 135deg,
+  a180: 180deg,
+  a225: 225deg,
+  a270: 270deg,
+  a315: 315deg,
+  a360: 360deg,
+  a-45: -45deg,
+  a-90: -90deg,
+  a-135: -135deg,
+  a-180: -180deg,
+  a-225: -225deg,
+  a-270: -270deg,
+  a-315: -315deg,
+  a-360: -360deg,
+);
+@each $key, $deg in $degrees {
+  .degY-#{$key} {
+    transform: rotateX($deg);
+  }
+  .degX-#{$key} {
+    transform: rotateY($deg);
+  }
+}
+.animate {
+  animation: rotate 10s infinite linear;
+}
+// .deg-45 {
+//   transform: rotate(45deg)
+// }
+
 .block {
   position: absolute;
   top: 100px;
   left: 100px;
-  transform: translateX(50deg);
 
-  transition: 0.5s;
+  transform: rotateX(45deg) rotateY(135deg);
+
+  transition: 1s;
   transform-style: preserve-3d;
 
-  &:hover {
-    transform: rotateX(180deg);
-    transition: 1.8s;
-  }
+  // &:hover {
+  //   transform: rotateX(180deg);
+  //   transition: 1.8s;
+  // }
 
   width: 100px;
   height: 100px;
   border: 1px solid black;
-
-  animation: rotate 10s infinite linear;
+}
+.arrow {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.5)
+  }
+}
+.img {
+  width: 10px;
+  height: 10px;
+ 
 }
 
 .front {
@@ -46,7 +92,7 @@
   border: 1px solid black;
 
   position: absolute;
-  transform: rotateY(90deg) translateZ(2.8em);
+  transform: rotateY(87deg) translateZ(2.8em);
   transform-origin: left;
   // top: 40px;
   left: -45px;
@@ -59,7 +105,7 @@
   border: 1px solid black;
 
   position: absolute;
-  transform: rotateY(90deg) translateZ(5.8em) translateX(3em);
+  transform: rotateY(93deg) translateZ(5.8em) translateX(2.8em);
   //   transform-origin: right;
   //   top: 40px;
   left: -45px;
